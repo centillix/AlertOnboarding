@@ -8,11 +8,11 @@
 
 import UIKit
 
-protocol AlertPageViewDelegate {
-    func nextStep(_ step: Int)
+@objc public protocol AlertPageViewDelegate {
+    @objc func nextStep(_ step: Int)
 }
 
-class AlertPageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
+open class AlertPageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
     //FOR DESIGN
     var pageController: UIPageViewController!
@@ -40,11 +40,11 @@ class AlertPageViewController: UIViewController, UIPageViewControllerDataSource,
         self.alertview = alertView
     }
     
-    required init(coder: NSCoder) {
+    required public init(coder: NSCoder) {
         fatalError("NSCoding not supported")
     }
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
         
         self.configurePageViewController()
@@ -56,19 +56,19 @@ class AlertPageViewController: UIViewController, UIPageViewControllerDataSource,
         self.pageController.didMove(toParentViewController: self)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override open func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    override func viewDidLayoutSubviews() {
+    override open func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
     }
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! AlertChildPageViewController).pageIndex!
         
@@ -80,7 +80,7 @@ class AlertPageViewController: UIViewController, UIPageViewControllerDataSource,
         return self.viewControllerAtIndex(index)
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+    public func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         
         var index = (viewController as! AlertChildPageViewController).pageIndex!
         
@@ -124,7 +124,7 @@ class AlertPageViewController: UIViewController, UIPageViewControllerDataSource,
         return pageContentViewController
     }
     
-    func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+    public func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         let pageContentViewController = pageViewController.viewControllers![0] as! AlertChildPageViewController
         let index = pageContentViewController.pageIndex
         self.currentStep = (arrayOfImage.count - index! - 1)
@@ -148,11 +148,11 @@ class AlertPageViewController: UIViewController, UIPageViewControllerDataSource,
     }
     
     
-    func presentationCount(for pageViewController: UIPageViewController) -> Int {
+    public func presentationCount(for pageViewController: UIPageViewController) -> Int {
         return arrayOfImage.count
     }
     
-    func presentationIndex(for pageViewController: UIPageViewController) -> Int {
+    public func presentationIndex(for pageViewController: UIPageViewController) -> Int {
         return 0
     }
     

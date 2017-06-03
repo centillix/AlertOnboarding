@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlertChildPageViewController: UIViewController {
+open class AlertChildPageViewController: UIViewController {
     
     var pageIndex: Int!
     
@@ -16,11 +16,11 @@ class AlertChildPageViewController: UIViewController {
     @IBOutlet weak var labelMainTitle: UILabel!
     @IBOutlet weak var labelDescription: UILabel!
     
-    override func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func didReceiveMemoryWarning() {
+    override open func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 }

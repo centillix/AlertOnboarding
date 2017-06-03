@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol AlertOnboardingDelegate {
+@objc public protocol AlertOnboardingDelegate {
     func alertOnboardingSkipped(_ currentStep: Int, maxStep: Int)
     func alertOnboardingCompleted()
     func alertOnboardingNext(_ nextStep: Int)
@@ -223,7 +223,7 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
     
     //MARK: ALERTPAGEVIEWDELEGATE    --------------------------------------
     
-    func nextStep(_ step: Int) {
+    public func nextStep(_ step: Int) {
         self.delegate?.alertOnboardingNext(step)
     }
     
