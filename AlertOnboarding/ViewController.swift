@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, AlertOnboardingDelegate {
+public class ViewController: UIViewController, AlertOnboardingDelegate {
     
     var alertView: AlertOnboarding!
     
@@ -18,7 +18,7 @@ class ViewController: UIViewController, AlertOnboardingDelegate {
                               "Purchase tickets on hot tours to your favorite planet and fly to the most comfortable intergalactic spaceships of best companies",
                               "In the process of flight you will be in cryogenic sleep and supply the body with all the necessary things for life"]
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         alertView = AlertOnboarding(arrayOfImage: arrayOfImage, arrayOfTitle: arrayOfTitle, arrayOfDescription: arrayOfDescription)
         alertView.delegate = self
@@ -53,15 +53,15 @@ class ViewController: UIViewController, AlertOnboardingDelegate {
     // MARK: DELEGATE METHODS --------------------------------
     //--------------------------------------------------------
     
-    func alertOnboardingSkipped(_ currentStep: Int, maxStep: Int) {
+    public func alertOnboardingSkipped(_ currentStep: Int, maxStep: Int) {
         print("Onboarding skipped the \(currentStep) step and the max step he saw was the number \(maxStep)")
     }
     
-    func alertOnboardingCompleted() {
+    public func alertOnboardingCompleted() {
         print("Onboarding completed!")
     }
     
-    func alertOnboardingNext(_ nextStep: Int) {
+    public func alertOnboardingNext(_ nextStep: Int) {
         print("Next step triggered! \(nextStep)")
     }
     
