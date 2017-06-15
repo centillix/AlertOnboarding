@@ -116,8 +116,10 @@ open class AlertPageViewController: UIViewController, UIPageViewControllerDataSo
         let realIndex = arrayOfImage.count - index - 1
         
         pageContentViewController.image.image = UIImage(named: arrayOfImage[realIndex])
+        pageContentViewController.labelMainTitle.font = alertview.titleLabelFont
         pageContentViewController.labelMainTitle.text = arrayOfTitle[realIndex]
         pageContentViewController.labelMainTitle.textColor = alertview.colorTitleLabel
+        pageContentViewController.labelDescription.font = alertview.descriptionLabelFont
         pageContentViewController.labelDescription.text = arrayOfDescription[realIndex]
         pageContentViewController.labelDescription.textColor = alertview.colorDescriptionLabel
         

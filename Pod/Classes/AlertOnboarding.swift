@@ -45,6 +45,11 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
     open var percentageRatioHeight: CGFloat = 0.8
     open var percentageRatioWidth: CGFloat = 0.8
     
+    
+    open var titleLabelFont: UIFont = UIFont(name: "Avenir-Heavy", size: 17)!
+    open var descriptionLabelFont: UIFont = UIFont(name: "Avenir-Book", size: 13)!
+    open var buttonFont: UIFont = UIFont(name: "Avenir-Black", size: 15)!
+    
     open var titleSkipButton = "SKIP"
     open var titleGotItButton = "GOT IT !"
     
@@ -134,13 +139,12 @@ open class AlertOnboarding: UIView, AlertPageViewDelegate {
     fileprivate func configure(_ arrayOfImage: [String], arrayOfTitle: [String], arrayOfDescription: [String]) {
         
         self.buttonBottom = UIButton(frame: CGRect(x: 0,y: 0, width: 0, height: 0))
-        self.buttonBottom.titleLabel?.font = UIFont(name: "Avenir-Black", size: 15)
+        self.buttonBottom.titleLabel?.font = self.buttonFont
         self.buttonBottom.addTarget(self, action: #selector(AlertOnboarding.onClick), for: .touchUpInside)
         
         self.background = UIView(frame: CGRect(x: 0,y: 0, width: 0, height: 0))
         self.background.backgroundColor = UIColor.black
         self.background.alpha = 0.5
-        
         
         self.clipsToBounds = true
         self.layer.cornerRadius = 10
